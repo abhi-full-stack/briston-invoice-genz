@@ -2,78 +2,6 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
-// Sample Client Data -- delete when backend connected
-const clientsData = [
-  {
-    id: 1,
-    username: "client_alpha",
-    clientName: "Alpha Tech Pvt Ltd",
-    billingAddress: "101 Alpha Tower, Sector 21, New Delhi, India",
-    shippingAddress: "Warehouse 5, Industrial Area, Gurgaon, Haryana",
-    gstin: "07ABCDE1234F1Z5",
-    contactPerson: "Rajesh Kumar",
-    contactDetails: {
-      email: "rajesh@alphatech.com",
-      phone: "+91-9876543210",
-    },
-    pos: [
-      {
-        poNumber: "PO-ALPHA-001",
-        poDate: "2024-04-15",
-      },
-      {
-        poNumber: "PO-ALPHA-002",
-        poDate: "2024-05-10",
-      },
-    ],
-  },
-  {
-    id: 2,
-    username: "client_beta",
-    clientName: "Beta Solutions LLP",
-    billingAddress: "22 Beta Plaza, MG Road, Bengaluru, Karnataka",
-    shippingAddress: "Block 3, Tech Park, Whitefield, Bengaluru",
-    gstin: "29BCDEF2345G1Z8",
-    contactPerson: "Anjali Mehta",
-    contactDetails: {
-      email: "anjali@betasolutions.in",
-      phone: "+91-9123456789",
-    },
-    pos: [
-      {
-        poNumber: "PO-BETA-001",
-        poDate: "2024-03-22",
-      },
-      {
-        poNumber: "PO-BETA-002",
-        poDate: "2024-04-30",
-      },
-      {
-        poNumber: "PO-BETA-003",
-        poDate: "2024-05-06",
-      },
-    ],
-  },
-  {
-    id: 3,
-    username: "client_gamma",
-    clientName: "Gamma Industries",
-    billingAddress: "Plot 77, MIDC Area, Pune, Maharashtra",
-    shippingAddress: "Storehouse 12, Chakan, Pune",
-    gstin: "27CDEFG3456H1Z2",
-    contactPerson: "Manoj Desai",
-    contactDetails: {
-      email: "manoj@gammaindustries.com",
-      phone: "+91-9988776655",
-    },
-    pos: [
-      {
-        poNumber: "PO-GAMMA-001",
-        poDate: "2024-04-05",
-      },
-    ],
-  },
-]
 
 const ClientList = () => {
   const [clients, setClients] = useState([])
@@ -88,7 +16,7 @@ const ClientList = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get("/api/clients")
+        const response = await axios.get("https://briston-invoice-genz.onrender.com/api/clients")
         setClients(response.data)
         setFilteredClients(response.data)
         setLoading(false)
