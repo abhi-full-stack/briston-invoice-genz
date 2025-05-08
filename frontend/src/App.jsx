@@ -16,7 +16,7 @@ const App = () => {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/clients" element={<ClientList />} />
+            <Route path="https://briston-invoice-genz.onrender.com/clients" element={<ClientList />} />
             <Route path="/clients/new" element={<ClientForm />} />
             <Route path="/clients/edit/:id" element={<ClientForm />} />
             <Route path="/invoices" element={<InvoiceList />} />
